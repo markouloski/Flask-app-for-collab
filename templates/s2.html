@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href='/static/style.css' />
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+        <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+      <link rel="manifest" href="/site.webmanifest">
+      <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->       
+        <div class="container">
+          <div class="navbar">
+            <div class="menu">
+              <div class="hamburger-menu">
+                <div class="bar"></div>
+              </div>
+          </div>
+        </div>
+            <div class="main-container">
+              <div class="main">
+                <header>
+                  <div class="overlay2">
+                    <div class="inner">
+                      <h6 class="title"><form action="/add_user", method="POST">
+                        <h6>What is your name?</h6>
+                        <h6><input type="text" name="m_name"><br></h6>
+                        <h6>What is your address?</h6>
+                        <h6><input type="text" name="m_address"><br></h6> 
+                        <h6>What is your phone number?</h6>
+                        <h6><input type="text" name="m_phone"><br></h6>
+                         <h6>Do you want to join the reunion?</h6>
+                         <h6><input type="boolean" name="m_event"><br></h6>
+                         <h6>What is your email?</h6>
+                         <h6><input type="text" name="m_email"><br></h6>
+                         <button type="submit">Add information</button>
+                    </form></h6>
+                    </div>
+                  </div>
+                </header>
+              </div>
+          <div class="shadow one"></div>
+          <div class="shadow two"></div>
+        </div>
+  
+        <div class="links">
+          <ul>
+            <li>
+              <a href="/" style="--i: 0.05s;">Index page</a>
+            </li>
+            <li>
+              <a href="/new_user" style="--i: 0.1s;">Add user</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <script> 
+      const hamburger_menu = document.querySelector(".hamburger-menu");
+        const container = document.querySelector(".container");
+        
+        hamburger_menu.addEventListener("click", () => {
+          container.classList.toggle("active");
+        });
+        </script>
+    </body>
+</html>

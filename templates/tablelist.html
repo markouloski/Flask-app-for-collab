@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href='/static/style.css' />
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>  
+      <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+      <link rel="manifest" href="/site.webmanifest">
+      <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->       
+        <div class="container">
+          <div class="navbar">
+            <div class="menu">
+              <div class="hamburger-menu">
+                <div class="bar"></div>
+              </div>
+          </div>
+        </div>
+            <div class="main-container">
+              <div class="main">
+                <header>
+                  <div class="overlay">
+                    <div class="inner">
+                      <h6 class="title">
+                        <table class = "table">
+                          <thead>
+                           <th>name</th>
+                           <th>address</th>
+                           <th>phone</th>
+                           <th>event</th>
+                           <th>email</th>
+                          </thead>
+                          
+                         {% for S in StudentSelect %}
+                           <tr>
+                             <td contenteditable="true">{{ S[1] }}</td>
+                             <td contenteditable="true">{{ S[2] }}</td>
+                             <td contenteditable="true">{{ S[3] }}</td>
+                             <td contenteditable="true">{{ S[4] }}</td>
+                             <td contenteditable="true">{{ S[5] }}</td>
+                           </tr>
+                         {% endfor %}
+                       </table></h6>
+                    </div>
+                </header>
+              </div>
+          <div class="shadow one"></div>
+          <div class="shadow two"></div>
+      </div>
+  
+        <div class="links">
+          <ul>
+            <li>
+              <a href="/" style="--i: 0.05s;">Index page</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <script> 
+      const hamburger_menu = document.querySelector(".hamburger-menu");
+        const container = document.querySelector(".container");
+        
+        hamburger_menu.addEventListener("click", () => {
+          container.classList.toggle("active");
+        });
+        </script>
+              <script>  
+                var $TABLE = $('#table');  
+                var $BTN = $('#export-btn');  
+                var $EXPORT = $('#export');  
+                $('.table-add').click(function () {  
+                  var $clone = $TABLE.find('tr.hide').clone(true).removeClass('hide table-line');  
+                  $TABLE.find('table').append($clone);  
+                });  
+                $('.table-remove').click(function () {  
+                  $(this).parents('tr').detach();  
+                });  
+                $('.table-up').click(function () {  
+                  var $row = $(this).parents('tr');  
+                  if ($row.index() === 1) return;   
+                  $row.prev().before($row.get(0));  
+                });  
+                $('.table-down').click(function () {  
+                  var $row = $(this).parents('tr');  
+                  $row.next().after($row.get(0));  
+                });  
+                jQuery.fn.pop = [].pop;  
+                jQuery.fn.shift = [].shift;  
+                $BTN.click(function () {  
+                  var $rows = $TABLE.find('tr:not(:hidden)');  
+                  var headers = [];  
+                  var data = [];  
+                    $($rows.shift()).find('th:not(:empty)').each(function () {  
+                    headers.push($(this).text().toLowerCase());  
+                  });  
+                  $rows.each(function () {  
+                    var $td = $(this).find('td');  
+                    var h = {};  
+                        headers.forEach(function (header, i) {  
+                      h[header] = $td.eq(i).text();     
+                    });  
+                        data.push(h);  
+                  });  
+                    }); 
+                </script> 
+    </body>
+</html>
